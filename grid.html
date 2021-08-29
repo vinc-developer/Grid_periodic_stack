@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main{
+            width: 100%;
+        }
+        .periodic-table {
+            padding: 12px;
+            max-height: 700px;
+            max-width:100%;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-rows: repeat(7, 13%);
+            grid-template-columns: repeat(12, 7.5%);
+            background-color: #2e5266;
+            justify-content: center;
+        }
+        .periodic-table-additional {
+            padding: 12px;
+            max-height: 700px;
+            max-width:100%;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-rows: repeat(2, 13%);
+            grid-template-columns: repeat(12, 7.5%);
+            background-color: #2e5266;
+            justify-content: center;
+        }
+        @media (max-width: 1100px) {
+            .periodic-table {
+                grid-template-rows: repeat(7, 11%);
+                grid-template-columns: repeat(12, 7%);
+                grid-gap: 12px;
+                padding: 10px;
+                max-height: 570px;
+            }
+            .title{
+                font: 700 15px/1.3 "Poppins", sans-serif !important;
+            }
+            .description{
+                font: 500 8px "Poppins", sans-serif !important;
+                margin-top: -2px;
+            }
+            .child{
+                width: 55px !important;
+                height: 55px !important;
+                padding: 3px !important;
+            }
+            .child:after{
+                width: 120px !important;
+                font-size: 10px !important;
+                padding: 8px;
+            }
+            .periodic-table-additional .title{
+                font: 700 20px/1.3 "Poppins", sans-serif !important;
+                margin-top: 10px !important;
+            }
+            .periodic-table-additional .description {
+                margin-top: 2px !important;
+            }
+
+        }
+        @media (max-width: 768px) {
+            h2{
+                font-size: 35px !important;
+            }
+            h3{
+                font-size: 25px !important;
+                margin: 0;
+            }
+            .periodic-table {
+                grid-template-rows: repeat(7, 10%);
+                grid-template-columns: repeat(12, 6%);
+                grid-gap: 12px;
+                padding: 10px;
+                max-height: 370px;
+            }
+            .title{
+                font: 700 11px/1.3 "Poppins", sans-serif !important;
+            }
+            .description{
+                font: 500 4px "Poppins", sans-serif !important;
+            }
+            .child{
+                width: 30px !important;
+                height: 30px !important;
+                padding: 4px !important;
+            }
+            .child:after{
+                width: 80px !important;
+                font-size: 7px !important;
+                padding: 5px;
+            }
+            .periodic-table-additional .title{
+                font: 700 15px/1.3 "Poppins", sans-serif !important;
+                margin-top: 5px !important;
+            }
+            .periodic-table-additional .description {
+                margin-top: 2px !important;
+            }
+            img{
+                margin-top: 0 !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .periodic-table {
+                grid-template-rows: repeat(7, 4%);
+                grid-template-columns: repeat(12, 2%);
+                grid-gap: 16px;
+                padding: 10px;
+                max-height: 170px;
+            }
+            .title{
+                font: 700 7px/1.3 "Poppins", sans-serif !important;
+
+            }
+            .description{
+                font: 500 3px "Poppins", sans-serif !important;
+            }
+            .child{
+                width: 15px !important;
+                height: 15px !important;
+                padding: 1px !important;
+            }
+            .child:after{
+                width: 50px !important;
+                font-size: 5px !important;
+                padding: 3px;
+            }
+            .periodic-table-additional .title{
+                font: 700 8px/1.3 "Poppins", sans-serif !important;
+                margin-top: 1px !important;
+            }
+            .periodic-table-additional .description {
+                margin-top: 0 !important;
+            }
+            img{
+                margin-top: 0 !important;
+            }
+
+        }
+
+        .child{
+            background-color: #202020;
+            padding: 5px;
+            border: 2px solid #e2c044;
+            color: #e2c044;
+            width: 75px;
+            height: 75px;
+        }
+        .child:hover{
+            border: 2px solid #202020;
+            background-color: #b9cfdd;
+            color: #202020;
+        }
+        .title{
+            font: 700 25px/1.3 "Poppins", sans-serif;
+        }
+        .description{
+            font: 500 10px "Poppins", sans-serif;
+        }
+        .child-3{
+            grid-column-start: 11;
+        }
+        .child-10{
+            grid-column-start: 7;
+        }
+        .child-14{
+            grid-column-start: 1;
+        }
+        .child-19{
+            grid-column-start: 7;
+        }
+        .child-22{
+            grid-column-start: 11;
+        }
+
+        .child-31{
+            grid-column-start: 10;
+        }
+        .child-33{
+            grid-column-start: 1;
+        }
+        .child-38{
+            grid-column-start: 7;
+        }
+        .child-49{
+            grid-column-start: 8;
+        }
+        .child-54{
+            grid-column-start: 4;
+        }
+        .child-55{
+            grid-column-start: 8;
+        }
+        .child-56{
+            grid-column-start: 10;
+        }
+        .child-additional{
+            grid-column-start: 3;
+        }
+        body{
+            background-color: #2e5266;
+        }
+        main{
+            border: 4px solid #e2c044;
+        }
+        h2{
+            text-align: center;
+            color: #e2c044;
+            font-size: 45px;
+        }
+        h3{
+            text-align: center;
+            color: #e2c044;
+            font-size: 35px;
+        }
+        .child:after{
+            content: attr(data-description);
+            background: #f9f8f7;
+            color: #333;
+            width: 180px;
+            position: absolute;
+            opacity: 0;
+            height: auto;
+            font-size: 12px;
+            line-height: 1.4;
+            padding: 10px;
+            margin: 0 0 0 -50px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .child:hover:after{
+            opacity: 1;
+        }
+
+        img{
+            width: 60%;
+            height: 60%;
+        }
+
+        img{
+            margin-top: 10px;
+        }
+        .periodic-table-additional .title{
+            margin-top: 15px;
+        }
+        .periodic-table-additional .description{
+            margin-top: 5px;
+        }
+        .child{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <h2>My developement stacks</h2>
+    <div class="periodic-table">
+        <div class="child child-1" data-description="J'utilise ubuntu pour préparer les serveurs pour la mise en productions et en tant que deuxieme os.">
+            <div class="title"><img src="images/ubuntu.png"></div>
+            <div class="description">Ubuntu</div>
+        </div>
+        <div class="child child-2" data-description="Os principale">
+            <div class="title"><img src="images/windows.png"></div>
+            <div class="description">Windows</div>
+        </div>
+        <div class="child child-3" data-description="Je fait des tests de mon code et dans la mesure du possible je pratique le TDD">
+            <div class="title"><img src="images/tdd.png"></div>
+            <div class="description">Testing</div>
+        </div>
+        <div class="child child-4" data-description="Je travail en mode agile avec mes équipes">
+            <div class="title"><img src="images/agile.png"></div>
+            <div class="description">Agilité</div>
+        </div>
+        <div class="child child-5" data-description="je tests la compatibilé de mon code sur opera">
+            <div class="title"><img src="images/opera.png"></div>
+            <div class="description">Opera</div>
+        </div>
+        <a class="child child-6" data-description="Pour me suivre c'est par ici" href="https://linkedin.com/in/colas-vincent/" target="_blank">
+            <div class="title"><img src="images/lk.png"></div>
+            <div class="description">Linkedin</div>
+        </a>
+        <div class="child child-7" data-description="j'utilise draw.io pour la modelisation de mes schemas">
+            <div class="title"><img src="images/draw.png"></div>
+            <div class="description">Draw.IO</div>
+        </div>
+        <a class="child child-8" data-description="je fait de la creation et de l'intégration wordpress" href="https://csevencreation.com">
+            <div class="title"><img src="images/wordpress.png"></div>
+            <div class="description">Wordpress</div>
+        </a>
+        <div class="child child-9" data-description="j'utilise les bonnes pratiques pour le référencement naturelle">
+            <div class="title"><img src="images/seo.png"></div>
+            <div class="description">SEO</div>
+        </div>
+        <div class="child child-10" data-description="j'utilise material design sur mes projets ainsi que Angular material sur les projets Angular">
+            <div class="title"><img src="images/material.png"></div>
+            <div class="description">Material</div>
+        </div>
+        <div class="child child-11" data-description="Framework frontend que j'utilise le plus">
+            <div class="title"><img src="images/angular.png"></div>
+            <div class="description">Angular</div>
+        </div>
+        <div class="child child-12" data-description="framwork frontend que j'utilise pour les petites applications">
+            <div class="title"><img src="images/vue.png"></div>
+            <div class="description">Vue.js</div>
+        </div>
+        <div class="child child-13" data-description="Notamment utilisée quand il n'y a pas de framwork, JSP - Servlet">
+            <div class="title"><img src="images/jee.png"></div>
+            <div class="description">JavaEE</div>
+        </div>
+        <div class="child child-14" data-description="je tests la compatibilé de mon code avec chrome">
+            <div class="title"><img src=images/ch.png></div>
+            <div class="description">Chrome</div>
+        </div>
+        <div class="child child-15" data-description="Ma Bilbe">
+            <div class="title"><img src="images/stack.png"></div>
+            <div class="description">Stackoverflow</div>
+        </div>
+        <div class="child child-16" data-description="j'utilise draw.io pour la modelisation de mes schemas">
+            <div class="title"><img src="images/umlet.png"></div>
+            <div class="description">Umlet</div>
+        </div>
+        <div class="child child-17" data-description="Mon premier éditeur de code">
+            <div class="title"><img src="images/vscode.png"></div>
+            <div class="description">VS Code</div>
+        </div>
+        <div class="child child-18" data-description="j'utilise google analytic pour suivre la frequentation de mes sites">
+            <div class="title"><img src="images/analytic.png"></div>
+            <div class="description">G. Analityc</div>
+        </div>
+        <div class="child child-10" data-description="j'utilise bootstrap sur la majeur partie de mes sites pour le web design">
+            <div class="title"><img src="images/boo.png"></div>
+            <div class="description">Bootstrap</div>
+        </div>
+        <div class="child child-20" data-description="utilisé notamment pour angular">
+            <div class="title"><img src="images/ts.png"></div>
+            <div class="description">TypeScript</div>
+        </div>
+        <div class="child child-21" data-description="Utilisé pour l'envoie de donnée entre le back et front">
+            <div class="title"><img src="images/json.png"></div>
+            <div class="description">Json</div>
+        </div>
+        <div class="child child-22" data-description="Serveur utilisé pour java">
+            <div class="title"><img src="images/tomcat.png"> </div>
+            <div class="description">Tomcat</div>
+        </div>
+        <div class="child child-23" data-description="Mes url sont sécurisé avec let's encrypt">
+            <div class="title"><img src="images/ssl.png"></div>
+            <div class="description">Ssl/Tls</div>
+        </div>
+        <div class="child child-24" data-description="Mon naviagteur par defaut : firefox developer">
+            <div class="title"><img src="images/firefox.png"></div>
+            <div class="description">Firefox</div>
+        </div>
+        <div class="child child-25" data-description="mon gestion de version">
+            <div class="title"><img src="images/git.png"></div>
+            <div class="description">Git</div>
+        </div>
+        <div class="child child-26" data-description="Canva est bien pratique pour les illustrations">
+            <div class="title"><img src="images/canva.png"></div>
+            <div class="description">Canva</div>
+        </div>
+        <div class="child child-27" data-description="Mon IDE favori">
+            <div class="title"><img src="images/intellij.png"></div>
+            <div class="description">IntelliJ</div>
+        </div>
+        <div class="child child-joker" data-description="Postman est bien pratique pour tester les routes">
+            <div class="title"><img src="images/postman.png"> </div>
+            <div class="description">Postman</div>
+        </div>
+        <div class="child child-28" data-description="HTML quoi...">
+            <div class="title"><img src="images/html.png"></div>
+            <div class="description">HTML</div>
+        </div>
+        <div class="child child-29" data-description="CSS quoi...">
+            <div class="title"><img src="images/css.png" style="width: 45%; height: 45%;"></div>
+            <div class="description">CSS</div>
+        </div>
+        <div class="child child-30" data-description="The best language frontend!!">
+            <div class="title"><img src="images/javascript.png"></div>
+            <div class="description">JavaScript</div>
+        </div>
+        <div class="child child-31" data-description="The best language backtend!!">
+            <div class="title"><img src="images/java.png" style="width: 45%; height: 45%;"> </div>
+            <div class="description">Java</div>
+        </div>
+        <div class="child child-32" data-description="la référence">
+            <div class="title"><img src="images/sq.png"></div>
+            <div class="description">SQL</div>
+        </div>
+        <div class="child child-33" data-description="je tests la compatibilé de mon code sur safari">
+            <div class="title"><img src="images/safari.png"> </div>
+            <div class="description">Safari</div>
+        </div>
+        <div class="child child-34" data-description="Mon gestionnaire de projet ou se trouve mes repo">
+            <div class="title"><img src="images/github.png"></div>
+            <div class="description">Github</div>
+        </div>
+        <div class="child child-35" data-description="Pour la création de mes designs et maquettes">
+            <div class="title"><img src="images/balsamiq.png"></div>
+            <div class="description">Balsamiq</div>
+        </div>
+        <div class="child child-36" data-description="Mon premier IDE pour java avant de passer sur intellij">
+            <div class="title"><img src="images/eclipse.png"></div>
+            <div class="description">Eclipse</div>
+        </div>
+        <div class="child child-37" data-description="Le model de conception java">
+            <div class="title"><img src="images/patern.png"></div>
+            <div class="description">Design Patern</div>
+        </div>
+        <div class="child child-19" data-description="Langage de style utilisé en framwork frontend">
+            <div class="title"><img src="images/scss.png"></div>
+            <div class="description">Sass</div>
+        </div>
+        <div class="child child-39" data-description="le langage backend JavaScript">
+            <div class="title"><img src="images/node.png"></div>
+            <div class="description">Node.js</div>
+        </div>
+        <div class="child child-40" data-description="Génial pour l'installation de package">
+            <div class="title"><img src="images/npm.png"></div>
+            <div class="description">NPM</div>
+        </div>
+        <div class="child child-41" data-description="Utilisé principalement pour le développement de logiciel">
+            <div class="title"><img src="images/javafx.png"></div>
+            <div class="description">JavaFx</div>
+        </div>
+        <div class="child child-42" data-description="Mon serveur de bdd le plus utilisé">
+            <div class="title"><img src="images/mysql.png"></div>
+            <div class="description">MySql</div>
+        </div>
+        <div class="child child-43" data-description="Sécurisation des connections avec le backend">
+            <div class="title"><img src="images/jwt.png"></div>
+            <div class="description">JWT</div>
+        </div>
+        <div class="child child-44" data-description="je tests la compatibilé de mon code sur edge">
+            <div class="title"><img src="images/edge.png"></div>
+            <div class="description">Edge</div>
+        </div>
+        <div class="child child-45" data-description="Pour mes recherches de code">
+            <div class="title"><img src="images/codepen.png"></div>
+            <div class="description">Codepen</div>
+        </div>
+        <div class="child child-46" data-description="Pour la création de mes designs et maquettes">
+            <div class="title"><img src="images/figma.png"></div>
+            <div class="description">Figma</div>
+        </div>
+        <div class="child child-47" data-description="Mon client de BDD favorie">
+            <div class="title"><img src="images/phpmyadmin.png"></div>
+            <div class="description">PhpMyAdmin</div>
+        </div>
+        <div class="child child-48" data-description="Le model de conception le plus utilisé">
+            <div class="title"><img src="images/mvc.png"></div>
+            <div class="description">MVC</div>
+        </div>
+        <div class="child child-38" data-description="pour le responsive design quand c'est nécéssaire">
+            <div class="title"><img src="images/mq.png"></div>
+            <div class="description">Media Queries</div>
+        </div>
+        <div class="child child-49" data-description="Framwork backend utilisé avec node.js">
+            <div class="title"><img src="images/express.png"></div>
+            <div class="description">Express</div>
+        </div>
+        <div class="child child-50" data-description="Socket est bien utile pour les conversation instantannés">
+            <div class="title"><img src="images/socket.png"></div>
+            <div class="description">Socket.io</div>
+        </div>
+        <div class="child child-51" data-description="Framwork backend">
+            <div class="title"><img src="images/spring.png"></div>
+            <div class="description">Spring Boot</div>
+        </div>
+        <div class="child child-52" data-description="Serveur de bdd microsoft">
+            <div class="title"><img src="images/sql.png"></div>
+            <div class="description">SQL Server</div>
+        </div>
+        <div class="child child-53" data-description="Le meilleur pour chiffré les mots de passe">
+            <div class="title"><img src="images/bcrypt.png"></div>
+            <div class="description">Bcrypt</div>
+        </div>
+        <div class="child child-54" data-description="aaaah le développement d'application avec sont émulateur, un régale">
+            <div class="title"><img src="images/androidstudio.png"></div>
+            <div class="description">Android Studio</div>
+        </div>
+        <div class="child child-55" data-description="Le développement cross platform d'application">
+            <div class="title"><img src="images/ionic.png"> </div>
+            <div class="description">Ionic</div>
+        </div>
+        <a class="child child-56" data-description="Le développement d'application de base haha allez voir..." href="#">
+            <div class="title"><img src="images/java-android.png"></div>
+            <div class="description">Java Android</div>
+        </a>
+    </div>
+    <h3>Soft skills</h3>
+    <div class="periodic-table-additional">
+        <div class=" child child-additional" data-description="Je suis curieux, et j'aime apprendre">
+            <div class="title">Cu</div>
+            <div class="description">Curieux</div>
+        </div>
+        <div class="child" data-description="Je m'invest énormément dans mon projet ou metier au point d'empiéter ma vie privé">
+            <div class="title">In</div>
+            <div class="description">Investi</div>
+        </div>
+        <div class="child" data-description="j'ai un très bon relationnel du notamment à mon premier metier">
+            <div class="title">Re</div>
+            <div class="description">Relationnel</div>
+        </div>
+        <div class="child" data-description="Je suis très rigoureux dans tout se que je réalise">
+            <div class="title">Ri</div>
+            <div class="description">Rigoureux</div>
+        </div>
+        <div class="child" data-description="Je sais travaillé en total autonomie">
+            <div class="title">Au</div>
+            <div class="description">Autonome</div>
+        </div>
+        <div class="child" data-description="L'organisation et l'optimisation sont maitre mot chez moi">
+            <div class="title">Or</div>
+            <div class="description">Organisé</div>
+        </div>
+        <div class="child" data-description="J'arrete uniquement quand j'ai réussi">
+            <div class="title">Pe</div>
+            <div class="description">Persévérent</div>
+        </div>
+        <div class="child" data-description="Fort de mon passé de responsable, j'ai une capacité à travailler an équipe indéniable">
+            <div class="title">Eq</div>
+            <div class="description">Equipe</div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
